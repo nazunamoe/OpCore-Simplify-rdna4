@@ -146,7 +146,9 @@ class CompatibilityChecker:
                 if self.is_low_end_intel_cpu(self.hardware_report.get("CPU").get("Processor Name")):
                     max_version = min_version = None
             elif "AMD" in gpu_manufacturer:
-                if "Navi 2" in gpu_codename:
+                if device_id in gpu_data.RDNA4DeviceIDs:
+                    min_version = "20.0.0"
+                elif "Navi 2" in gpu_codename:
                     if not "AVX2" in self.hardware_report.get("CPU").get("SIMD Features"):
                         max_version = "21.99.99"
                         ocl_patched_min_version = "22.0.0"

@@ -140,6 +140,18 @@ kexts = [
         }
     ),
     KextInfo(
+        name="AMDRadeonRDNA4",
+        description="Display driver for AMD RDNA 4 dGPUs (RX 9070 / 9070 XT / AI PRO R9700)",
+        category="Graphics",
+        min_darwin_version="20.0.0",
+        requires_kexts=["Lilu"],
+        conflict_group_id="GPU",
+        github_repo={
+            "owner": "RX4Darwin",
+            "repo": "AMDRadeonRDNA4.kext"
+        }
+    ),
+    KextInfo(
         name="WhateverXe",
         description="Graphics drivers for Intel Xe iGPUs",
         category="Graphics",

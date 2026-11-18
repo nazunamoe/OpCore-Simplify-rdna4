@@ -11,6 +11,9 @@ AMDCodenames = [
     "Fiji"
 ]
 
+# AMD RDNA 4 (Navi 48): RX 9070 / 9070 XT, AI PRO R9700
+RDNA4DeviceIDs = {"7550", "7551"}
+
 IntelGPUDeviceIDs = {
     'i810': {'7121', '7123', '7125'},
     'i815': {'1132'},

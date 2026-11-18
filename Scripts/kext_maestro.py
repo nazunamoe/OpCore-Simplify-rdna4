@@ -464,6 +464,24 @@ class KextMaestro:
                     selected_kexts.append("AMFIPass")
                     continue
 
+                if gpu_props.get("Device ID", "")[5:].upper() in gpu_data.RDNA4DeviceIDs:
+                    print("\n*** Found {} is AMD RDNA 4 GPU.".format(gpu_name))
+                    print("")
+                    print(
+                        "\033[91mImportant:\033[0m AMDRadeonRDNA4 is experimental (display driver only).")
+                    print(
+                        "- Rendering is in software; Metal is optional and needs a helper installed in macOS:")
+                    print(
+                        "  https://github.com/RX4Darwin/AMDRadeonRDNA4.kext#metal-on-macos-tahoe-and-sequoia-experimental")
+                    print(
+                        "- It is used instead of WhateverGreen (an Intel iGPU, if present, won't get WhateverGreen)")
+                    print(
+                        "- Recovery: boot with rdna4-off=1 (this kext only) or -liluoff (all Lilu plugins)")
+                    print("")
+                    self.utils.request_input("Press Enter to continue...")
+                    selected_kexts.append("AMDRadeonRDNA4")
+                    break
+
                 if "Navi 22" in gpu_props.get("Codename"):
                     selected_kexts.append("NootRX")
                     break
